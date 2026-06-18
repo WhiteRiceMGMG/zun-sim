@@ -1,0 +1,406 @@
+/**********************************************************/
+/* history  | 26.06.09 NEW                                */
+/*          |                                             */
+/*          |                                             */
+/**********************************************************/
+
+
+/**********************************************************/
+/* MODULE LIST                                            */
+/**********************************************************/
+this system consists of multiple layers,BSW,SAC,APL,SIM.
+
+
+/*--------------------------------------------------------*/
+/* BSW                                                    */
+/*--------------------------------------------------------*/
+BSW
+|- bios2bswif.h
+|   |- *u1g_bios2bswif_acelthl   
+|   |- *u1g_bios2bswif_brkpdl
+|   |- *u1g_bios2bswif_clthpdl
+|   |- *u1g_bios2bswif_gear
+|   |- *u1g_bios2bswif_igsw|
+|- bschedulif.h
+|   |- *u1g_bscheduleif_cnt
+|   |- *u1g_bscheduleif_rstflg
+|   |- ^vdg_bscheduleif_call()
+|- bcyclemngif.h
+|   |- ^vdg_bcyclemngif_pwon()
+|   |- ^vdg_bcyclemngif_4ms()
+|   |- ^vdg_bcyclemngif_16ms()
+|   |- ^vdg_bcyclemngif_64ms()
+|- blogconsolif.h
+|   |- ^vdg_blogconsolif_64ms()
+|- bbswrstif.h
+|   |- ^vdg_bbswrstif_pwon()
+
+/*--------------------------------------------------------*/
+/* SAC                                                    */
+/*--------------------------------------------------------*/
+SAC
+|- sacelcrtif.h
+|   |- ^vdg_sacelcrtif_pwon()
+|   |- ^vdg_sacelcrtif_4msm()
+|   |- *u1g_sacelcrtif_thlpct
+|   |- *u1g_sacelcrtif_crtflg
+|- sbrkcrtif.h
+|   |- ^vdg_sbrkcrtif_pwon()
+|   |- ^vdg_sbrkcrtif_4msm()
+|   |- *u1g_sbrkcrtif_pdlpct
+|   |- *u1g_sbrkcrtif_crtflg
+|- sclthcrtif.h
+|   |- ^vdg_sclthcrtif_pwon()
+|   |- ^vdg_sclthcrtif_16msm()
+|   |- *u1g_sclthcrtif_pdlpct
+|   |- *u1g_sclthcrtif_crtflg
+|- sigswcrtif.h
+|   |- ^vdg_sigswcrtif_pwon()
+|   |- ^vdg_sigswcrtif_16msm()
+|   |- * u1g_sigsw_sts
+|- sgearcrtif.h
+|   |- ^vdg_sgearcrtif_pwon()
+|   |- ^vdg_sgearcrtif_16msm()　
+|   |- *s1g_sgearcrtif_pos
+|- avelif.h
+|   |- ^vdg_avelif_pwon()
+|   |- ^vdg_avelif_16msm()
+|   |- *u2g_avelif_spd
+|- arpmcfmif.h
+|   |- ^vdg_arpmcfmif_pwon()
+|   |- ^vdg_arpmcfmif_16msm()
+|   |- *u2g_arpmcfmif_val
+|- agearcfmif.h
+|   |- ^vdg_sgearcfmif_pwon()
+|   |- ^vdg_sgearcfmif_16msm()
+|   |- *s1g_sgearcfmif_pos
+
+/*--------------------------------------------------------*/
+/* APL                                                    */
+/*--------------------------------------------------------*/
+APL
+|- ppermif.h
+|   |- ^vdg_ppermif_pwon()
+|   |- ^vdg_ppermif_4msm()
+|   |- *u1g_ppermif_eng
+|   |- *u1g_ppermif_sht
+|- pprtctif.h
+|   |- ^vdg_pprtctif_pwon()
+|   |- ^vdg_pprtctif_4msm()
+|   |- *u1g_pprtctif_ovrvsts
+|   |- *u1g_pprtctif_clthszsts
+|   |- *u1g_pprtctif_brkszsts
+|   |- *u1g_pprtctif_enststs
+|- pwarnif.h
+|   |- ^vdg_pwarnif_pwon()
+|   |- ^vdg_pwarnif_64msm()
+|   |- *u1g_pwarnif_ovrhet
+|   |- *u1g_pwarnif_snserr
+|   |- *u1g_pwarnif_stserr
+|- psimbrdgif.h
+|   |- ^vdg_psimbrdgif_pwon()
+|   |- ^vdg_psimbrdgif_4msm()　
+|   |- *u1g_psimbrdgif_aclthlpct
+|   |- *u1g_psimbrdgif_brkthlpct
+|   |- *u1g_psimbrdgif_clththlpct
+|   |- *s1g_psimbrdgif_gearpos
+|   |- *u2g_psimbrdgif_velspd
+|   |- *u2g_psimbrdgif_rpmval
+|   |- *s1g_psimbrdgif_gearcfmpos
+|- pvehstsif.h
+|   |- ^vdg_pvehstsif_pwon()
+|   |- ^vdg_pvehstsif_64msm()　
+|   |- *u1g_pvehstsif_stop
+|   |- *u1g_pvehstsif_run
+|   |- *u1g_pvehstsif_spdup
+|   |- *u1g_pvehstsif_spddw
+|   |- *u1g_pvehstsif_enst
+
+/*--------------------------------------------------------*/
+/* SIM                                                    */
+/*--------------------------------------------------------*/
+SIM
+|-mengif.h
+|   |- ^vdg_mengif_pwon()
+|   |- ^vdg_mengif_4msm()
+|   |- *u1g_mengif_trq
+|   |- *u1g_mengif_rpm
+|- mclthif.h
+|   |- ^vdg_mclthif_pwon()
+|   |- ^vdg_mclthif_4msm()
+|   |- *u1g_mclthif_transtrq
+|   |- *u1g_mclthif_amtslip
+|   |- *u1g_mclthif_temp
+|- mgearboxif.h
+|   |- ^vdg_mgearboxif_pwon()
+|   |- ^vdg_mgearboxif_4msm()
+|   |- *u1g_mgearboxif_outtrq
+|   |- *u1g_mgearboxif_gearrto
+|- mvirtmachif.h
+|   |- ^vdg_mvirtmachif_pwon()
+|   |- ^vdg_mvirtmachif_4msm()　
+|   |- *u1g_mvirtmachif_speed
+|   |- *u1g_mvirtmachif_acelratn
+|   |- *u1g_mvirtmachif_trvldist
+|- mbrakeif.h
+|   |- ^vdg_mbrakeif_pwon()
+|   |- ^vdg_mbrakeif_4msm()　
+|   |- *u1g_mbrakeif_force
+|   |- *u1g_mbrakeif_temp
+
+/*--------------------------------------------------------*/
+/* BSW/bios2bswif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bios2bswif.h
+|- *u1g_bios2bswif_acelthl  アクセルスロットル開度 0-100[%]
+|- *u1g_bios2bswif_brkpdl   ブレーキペダル開度    0-100[%]
+|- *u1g_bios2bswif_clthpdl  クラッチペダル開度   0-100[%]
+|- *u1g_bios2bswif_gear     ギア情報    1,2,3,4,5,6,N[-]
+|- *u1g_bios2bswif_igsw     ignition status 0(off),1(on)[-]
+
+【入力】
+swift側の変数
+【出力】
+SAC u1g_bios2bswif_acelthl  アクセルスロットル開度 0-100[%]
+SAC u1g_bios2bswif_brkpdl   ブレーキペダル開度    0-100[%]
+SAC u1g_bios2bswif_clthpdl  クラッチペダル開度   0-100[%]
+SAC u1g_bios2bswif_gear     ギア情報    1,2,3,4,5,6,N[-]
+SAC u1g_bios2bswif_igsw     ignition status 0(off),1(on)[-]
+
+rename and publish the swift label.
+
+/*--------------------------------------------------------*/
+/* BSW/bschedulif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bschedulif.h
+|- *u1g_bscheduleif_cnt     カウントコール回数[-]
+|- *u1g_bscheduleif_rstflg  リセットフラグ[-]
+|- ^vdg_bscheduleif_call()
+
+【入力】
+なし
+【出力】
+なし
+
+スケジューラは以下の機能を持ち，swiftからコールされるたびに
+カウントを1アップする．さらに，以下のコールが成立時，
+リセットフラグを立て，リセットする．
+1 count -> call 4msmng 4 times.
+2 count -> call 16msmng 1 times.
+4 count -> call 64msmng 1 times.
+
+/*--------------------------------------------------------*/
+/* BSW/bcyclemngif.h                                      */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bcyclemngif.h
+|- ^vdg_bcyclemngif_pwon()
+|- ^vdg_bcyclemngif_4ms()
+|- ^vdg_bcyclemngif_16ms()
+|- ^vdg_bcyclemngif_64ms()
+
+【入力】
+なし
+【出力】
+なし
+
+周期ごとの機能を管理する．外部関数を差し込む．
+
+/*--------------------------------------------------------*/
+/* BSW/blogconsolif.h                                     */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+blogconsolif.h
+|- ^vdg_blogconsolif_64ms()
+
+【入力】
+多数のため現段階では未定
+【出力】
+多数のため現段階では未定
+
+IG-ON状態や二度読み有無，状態監視などの内部情報のログを集約．
+
+/*--------------------------------------------------------*/
+/* BSW/bbswrstif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bbswrstif.h
+|- ^vdg_bbswrstif_pwon()
+
+【入力】
+RAM初期化（廃止予定）
+【出力】
+なし
+
+IOS-Bridge，ログ，カウンタ等のRAMを(念のため)初期化する．
+
+/*--------------------------------------------------------*/
+/* SAC/sacelcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+sacelcrtif.h
+|- ^vdg_sacelcrtif_pwon()
+|- ^vdg_sacelcrtif_4msm()
+|- *u1g_sacelcrtif_thlpct   補正アクセルスロットル開度 0-100[%]
+|- *u1g_sacelcrtif_crtflg   アクセルスロットル補正有無 OFF,ON[-]
+
+【入力】
+BSW u1g_bios2bswif_acelthl  アクセルスロットル開度 0-100[%]
+【出力】
+APL u1g_sacelcrtif_thlpct   補正アクセルスロットル開度 0-100[%]
+APL u1g_sacelcrtif_crtflg   アクセルスロットル補正有無 OFF,ON[-]
+
+
+前回値との比較により補正を行い，アクセルスロットル開度(%)と
+補正有無を公開する．pwon時，アクセルスロットル開度を公開し，
+直後にその値を前回値として保存する．また，補正有無は
+なしとして公開する．定期時，前回値との比較によって今回値を
+更新する．このとき，補正有無を公開する．
+
+/*--------------------------------------------------------*/
+/* SAC/sbrkcrtif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+sbrkcrtif.h
+|- ^vdg_sbrkcrtif_pwon()
+|- ^vdg_sbrkcrtif_4msm()
+|- *u1g_sbrkcrtif_pdlpct   補正ブレーキペダル開度 0-100[%]
+|- *u1g_sbrkcrtif_crtflg   ブレーキペダル補正有無 OFF,ON[-]
+
+【入力】
+BSW u1g_bios2bswif_brkpdl   ブレーキペダル開度    0-100[%]
+【出力】
+APL u1g_sbrkcrtif_pdlpct   補正ブレーキペダル開度 0-100[%]
+APL u1g_sbrkcrtif_crtflg   ブレーキペダル補正有無 OFF,ON[-]
+
+前回値との比較により補正を行い，ブレーキペダル開度(%)と
+補正有無を公開する．pwon時，ブレーキペダル開度を公開し，
+直後にその値を前回値として保存する．また，補正有無は
+なしとして公開する．
+
+/*--------------------------------------------------------*/
+/* SAC/sclthcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+sclthcrtif.h
+|- ^vdg_sclthcrtif_pwon()
+|- ^vdg_sclthcrtif_16msm()
+|- *u1g_sclthcrtif_pdlpct   補正クラッチペダル開度 0-100[%]
+|- *u1g_sclthcrtif_crtflg   クラッチペダル補正有無 OFF,ON[-]
+
+【入力】
+BSW u1g_bios2bswif_clthpdl クラッチペダル開度   0-100[%]
+【出力】
+APL u1g_sclthcrtif_pdlpct   補正クラッチペダル開度 0-100[%]
+APL u1g_sclthcrtif_crtflg   クラッチペダル補正有無 OFF,ON[-]
+
+前回値との比較で補正を行い，クラッチペダル[%]と補正有無[-]を
+公開する．pwon直後のpdlpctを公開し，直後にその値を前回値として
+保存する．このとき補正はなしとする．定期時は前回値との比較
+により今回値を更新する．このとき補正有無を公開する．
+
+
+/*--------------------------------------------------------*/
+/* SAC/sgearcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+sgearcrtif.h
+|- ^vdg_sgearcrtif_pwon()
+|- ^vdg_sgearcrtif_16msm()
+|- *s1g_sgearcrtif_pos      ギアポジション情報 1,2,3,4,5,6,N[-]
+|- *u1g_sgearcrtif_crtflg   ギアポジション補正有無 OFF,ON[-]
+
+【入力】
+BSW u1g_bios2bswif_gear     ギア情報    1,2,3,4,5,6,N[-]
+【出力】
+APL s1g_sgearcrtif_pos      ギアポジション情報 1,2,3,4,5,6,N[-]
+APL u1g_sgearcrtif_crtflg   ギアポジション補正有無 OFF,ON[-]
+
+前回値との二度読みで確定させたギアポジション情報を公開する．
+pwon時はギアポジションを補正せず公開し，直後にその値を
+前回値として保存する．また，補正有無はなしとして公開する．
+定期時は前回値との二度読みで値を確定させる．補正があれば
+補正済み値を今回値として公開する．このとき補正有無を公開する．
+
+/*--------------------------------------------------------*/
+/* SAC/sigswcrtif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/avelif.h                                           */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/arpmcfmif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SAC/agearcfmif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/ppermif.h                                          */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/pprtctif.h                                         */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/pwarnif.h                                          */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/psimbrdgif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* APL/pvehstsif.h                                        */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mengif.h                                           */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mclthif.h                                          */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mgearboxif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mvirtmachif.h                                      */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+/*--------------------------------------------------------*/
+/* SIM/mbrakeif.h                                         */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+
