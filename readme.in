@@ -20,7 +20,14 @@ BSW
 |   |- *u1g_bios2bswif_brkpdl
 |   |- *u1g_bios2bswif_clthpdl
 |   |- *u1g_bios2bswif_gear
-|   |- *u1g_bios2bswif_igsw|
+|   |- *u1g_bios2bswif_igsw
+|- bbsw2iosif.h
+|   |-
+|   |-
+|   |-
+|   |-
+|   |-
+|   |-
 |- bschedulif.h
 |   |- *u1g_bscheduleif_cnt
 |   |- *u1g_bscheduleif_rstflg
@@ -158,7 +165,7 @@ bios2bswif.h
 |- *u1g_bios2bswif_brkpdl   ブレーキペダル開度    0-100[%]
 |- *u1g_bios2bswif_clthpdl  クラッチペダル開度   0-100[%]
 |- *u1g_bios2bswif_gear     ギア情報    1,2,3,4,5,6,N[-]
-|- *u1g_bios2bswif_igsw     ignition status 0(off),1(on)[-]
+|- *u1g_bios2bswif_igsw     イグニッションスイッチステータス 0(off),1(on)[-]
 
 【入力】
 swift側の変数
@@ -170,6 +177,25 @@ SAC u1g_bios2bswif_gear     ギア情報    1,2,3,4,5,6,N[-]
 SAC u1g_bios2bswif_igsw     ignition status 0(off),1(on)[-]
 
 rename and publish the swift label.
+/*--------------------------------------------------------*/
+/* BSW/bbsw2iosif.h                                       */
+/*--------------------------------------------------------*/
+CREATED:NO
+
+bbsw2iosif.h
+|- *u1g_bbsw2iosif_vel      仮想マシン速度 0 - 300[km/h]
+|- *
+|-
+|- 
+|- 
+
+【入力】
+SAC 
+【出力】
+SWT u1g_bbsw2iosif_vel      仮想マシン速度 0 - 300[km/h]
+
+
+rename and publish the bsw label.
 
 /*--------------------------------------------------------*/
 /* BSW/bschedulif.h                                       */
@@ -338,10 +364,40 @@ pwon時はギアポジションを補正せず公開し，直後にその値を
 /*--------------------------------------------------------*/
 CREATED:NO
 
+sigswcrtif.h
+|- ^vdg_sigswcrtif_pwon()
+|- ^vdg_sigswcrtif_16msm()
+|- * u1g_sigswif_sts          イグニッションスイッチステータス OFF,ON[-]
+
+【入力】
+u1g_bios2bswif_igsw     イグニッションスイッチステータス OFF,ON[-]
+【出力】
+u1g_sigswif_sts          イグニッションスイッチステータス OFF,ON[-]
+
+前回値との二度読みで確定させたイグニッションスイッチステータスを
+公開する。pwon時は補正せずにONで公開し、その値を前回値として
+保存する。また、補正有無はなしとして公開する。定期時は、
+前回値との二度読みで値を確定させる。このとき補正があれば
+補正済み値を今回値として公開する。このとき補正有無を公開する。
+
 /*--------------------------------------------------------*/
 /* SAC/avelif.h                                           */
 /*--------------------------------------------------------*/
 CREATED:NO
+
+avelif.h
+|- ^vdg_avelif_pwon()
+|- ^vdg_avelif_16msm()
+|- *u2g_avelif_spd      演算マシン速度 0 - 300[km/h]
+
+【入力】
+TDP
+【出力】
+BSW u2g_avelif_spd      仮想マシン速度 0 - 300[km/h]
+
+
+
+
 
 /*--------------------------------------------------------*/
 /* SAC/arpmcfmif.h                                        */
