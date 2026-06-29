@@ -38,7 +38,7 @@ typedef signed long long s8;
 
 #elif ( MACHINE_TYPE == MACHINE_TYPE_MACOS )
 /* TO BE DETERMINED */
-
+a
 #elif ( MACHINE_TYPE == MACHINE_TYPE_RASP_PROTO )
 /* TO BE DETERMINED */
 
@@ -62,7 +62,7 @@ typedef struct
     u1 b5 : 1;
     u1 b6 : 1;
     u1 b7 : 1;
-} stflg8;
+} stflag8;
 
 typedef struct
 {
@@ -82,7 +82,7 @@ typedef struct
     u2 b13 : 1;
     u2 b14 : 1;
     u2 b15 : 1;
-} stflg16;
+} stflag16;
 
 /*----------------------------------------------------------------------------*/
 /* MACROS                                                                     */
