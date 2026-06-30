@@ -96,6 +96,21 @@ typedef struct
 #define TRUE  ((u1)1)
 #define FALSE ((u1)0)
 
+#define u1g_MAX ((u1)0xff)
+#define u2g_MAX ((u2)0xffff)
+#define u4g_MAX ((u4)0xffffffff)
+#define u1g_MIN ((u1)0x00)
+#define u2g_MIN ((u2)0x0000)
+#define u4g_MIN ((u4)0x00000000)
+
+#define s1g_MAX ((s1)0x7f)
+#define s2g_MAX ((s2)0x7ffff)
+#define s4g_MAX ((s4)0x7fffffff)
+#define s1g_MIN ((s1)0x80)
+#define s2g_MIN ((s2)0x8000)
+#define s4g_MIN ((s4)0x80000000
+
+
 #undef COMMON_H
 /*----------------------------------------------------------------------------*/
 /* EOF                                                                        */

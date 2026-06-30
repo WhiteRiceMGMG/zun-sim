@@ -29,7 +29,7 @@ void vdg_bcyclemngif_4msout( void );   /* 4ms output cycle manager  */
 void vdg_bcyclemngif_16msin( void );   /* 16ms input cycle manager  */
 void vdg_bcyclemngif_16msout( void );  /* 16ms output cycle manager */
 void vdg_bcyclemngif_64msin( void );   /* 64ms input cycle manager  */
-void vdg_bcyclemngif_16msout( void );  /* 64ms output cycle manager */
+void vdg_bcyclemngif_64msout( void );  /* 64ms output cycle manager */
 
 #undef BCYCLEMNGIF_H
 /*----------------------------------------------------------------------------*/
