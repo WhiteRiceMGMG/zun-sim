@@ -36,6 +36,10 @@
                                     /* vdg_aplaramngif_64msin()  */
                                     /* vdg_aplaramngif_64msout() */
 
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+#include "../../../debug/log/print_log.h"
+#endif
+
 #include "../bcyclemngif.h"         /* self header */
 
 /*----------------------------------------------------------------------------*/
@@ -59,6 +63,9 @@
 void
 vdg_bcyclemngif_pwon( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_pwon()" );
+#endif
     /* ▼▼▼ INSERT BSW PWON FUNCTION ▼▼▼ */
 
     /* ▲▲▲ INSERT BSW PWON FUNCTION ▲▲▲ */
@@ -77,6 +84,9 @@ vdg_bcyclemngif_pwon( void )
 void
 vdg_bcyclemngif_4msin( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_4msin()" );
+#endif
     vdg_sacaramngif_4msin(); /* sac layer manager 4msin function */
     vdg_aplaramngif_4msin(); /* apl layer manager 4msin function */
     vdg_simaramngif_4msin(); /* sim layer manager 4msin function */
@@ -91,6 +101,9 @@ vdg_bcyclemngif_4msin( void )
 void
 vdg_bcyclemngif_4msout( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_4msout()" );
+#endif
     vdg_sacaramngif_4msout(); /* sac layer manager 4msout function */
     vdg_aplaramngif_4msout(); /* apl layer manager 4msout function */
     vdg_simaramngif_4msout(); /* sim layer manager 4msout function */
@@ -105,6 +118,9 @@ vdg_bcyclemngif_4msout( void )
 void
 vdg_bcyclemngif_16msin( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_16msin()" );
+#endif
     vdg_sacaramngif_16msin(); /* sac layer manager 16msin function */
     vdg_aplaramngif_16msin(); /* apl layer manager 16msin function */
     vdg_simaramngif_16msin(); /* sim layer manager 16msin function */
@@ -119,6 +135,9 @@ vdg_bcyclemngif_16msin( void )
 void
 vdg_bcyclemngif_16msout( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_16msout()" );
+#endif
     vdg_sacaramngif_16msout(); /* sac layer manager 16msout function */
     vdg_aplaramngif_16msout(); /* apl layer manager 16msout function */
     vdg_simaramngif_16msout(); /* sim layer manager 16msout function */
@@ -133,6 +152,9 @@ vdg_bcyclemngif_16msout( void )
 void
 vdg_bcyclemngif_64msin( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_64msin()" );
+#endif
     vdg_sacaramngif_64msin(); /* sac layer manager 64msin function */
     vdg_aplaramngif_64msin(); /* apl layer manager 64msin function */
     vdg_simaramngif_64msin(); /* sim layer manager 64msin function */
@@ -147,6 +169,9 @@ vdg_bcyclemngif_64msin( void )
 void
 vdg_bcyclemngif_64msout( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bcyclemngif_64msout()" );
+#endif
     vdg_sacaramngif_64msout(); /* sac layer manager 64msout function */
     vdg_aplaramngif_64msout(); /* apl layer manager 64msout function */
     vdg_simaramngif_64msout(); /* sim layer manager 64msout function */

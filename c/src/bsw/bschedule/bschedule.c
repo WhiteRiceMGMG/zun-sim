@@ -21,6 +21,10 @@
                                /* vdg_bcyclemngif_64msin()                    */
                                /* vdg_bcyclemngif_64msout()                   */
 
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+#include "../../../debug/log/print_log.h"
+#endif
+
 #include "../bscheduleif.h"
 
 /*----------------------------------------------------------------------------*/
@@ -48,13 +52,15 @@ static u1 u1s_bschedulerif_outcnt_o;
 void
 vdg_bscheduleif_pwoncall( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bscheduleif_pwoncall()" );
+#endif
+
     u1s_bschedule_incnt_o = (u1)0;
     u1s_bschedule_outcnt_o = (u1)0;
     u1g_bschedulerif_rstflg = (u1)OFF;
 
     vdg_bcyclemngif_pwon();
-
-
 }
 
 /*----------------------------------------------------------------------------*/
@@ -66,6 +72,9 @@ vdg_bscheduleif_pwoncall( void )
 void
 vdg_bscheduleif_incall( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bschedulerif_incall()" );
+#endif
     u1 u1t_incnt;
     u1 u1t_rstflg;
 
@@ -105,6 +114,10 @@ vdg_bscheduleif_incall( void )
 void
 vdg_bscheduleif_outcall( void )
 {
+#if ( PRINT_LOG_SETTING_CONF == PRINT_LOG_SETTING_VALI )
+    vdg_log_print( "execute vdg_bschedulerif_outcall()" );
+#endif
+
     u1 u1t_outcnt;
     u1 u1t_rst_flg;
 

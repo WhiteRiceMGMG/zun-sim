@@ -30,6 +30,17 @@
 #define MACHINE_TYPE  (MACHINE_TYPE_IOS)
 /*▲▲▲ SET MACHINE TYPE ▲▲▲ */
 
+/**************************************/
+/* PRINT LOG VALID SETTING!           */
+/**************************************/
+/* -------- ADD PRINT LOG LIST -------- */
+#define PRINT_LOG_SETTING_UNVALID    (0)
+#define PRINT_LOG_SETTING_VALID      (1)
+/* -------- ADDPRINT  LOG LIST -------- */
+
+/*▼▼▼ SET PRINT LOG VALID ▼▼▼ */
+#define PRINT_LOG_SETTING_CONF  (PRINT_LOG_SETTING_VALID)
+/*▲▲▲ SET PRINT LOG VALID ▲▲▲ */
 
 #undef CONFIG_H
 /*----------------------------------------------------------------------------*/
